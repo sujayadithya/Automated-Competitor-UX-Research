@@ -45,7 +45,7 @@ Open the HTML file in a browser. The summary is at the top. The full screenshot 
  
 ## Example output
  
-A finished run of `/research add to cart` is saved in [`examples/add-to-cart-2026-10-12/`](examples/add-to-cart-2026-10-12/). Open its `report.html` in a browser to see what a report looks like.
+A finished run of `/research add to cart` is saved in [`examples/add-to-cart-2026-10-12/`](examples/add-to-cart-2026-10-12). Open its `report.html` in a browser to see what a report looks like.
  
 ## Run it again
  
