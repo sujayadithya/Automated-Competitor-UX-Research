@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Add to cart — competitor research — 12 Oct 2026</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; font: 16px/1.5 Georgia, "Iowan Old Style", serif; color: #1a1a1a; background: #f6f4ef; }
+  main { max-width: 980px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1, h2, h3 { font-family: "Avenir Next", "Segoe UI", sans-serif; letter-spacing: -0.02em; line-height: 1.15; }
+  h1 { font-size: 40px; margin: 0 0 8px; }
+  .meta { color: #5c564c; margin: 0 0 32px; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 14px; }
+  h2 { font-size: 26px; margin: 48px 0 12px; }
+  h3 { font-size: 18px; margin: 28px 0 8px; }
+  p { margin: 0 0 12px; }
+  .summary { font-size: 18px; }
+  .pattern { border-top: 1px solid #ddd6c8; padding-top: 8px; }
+  .who { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 14px; color: #5c564c; }
+  .shots { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0 8px; }
+  figure { margin: 0; flex: 1 1 280px; max-width: 460px; }
+  img { width: 100%; height: auto; display: block; background: #fff; border: 1px solid #ddd6c8; }
+  figcaption { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 13px; color: #5c564c; margin-top: 6px; }
+  table { width: 100%; border-collapse: collapse; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 14px; background: #fff; }
+  th, td { text-align: left; vertical-align: top; border-bottom: 1px solid #ddd6c8; padding: 10px 8px; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #5c564c; }
+  .callout { background: #fff; border-left: 3px solid #1a1a1a; padding: 10px 14px; margin: 0 0 10px; }
+  details { margin-top: 12px; background: #fff; border: 1px solid #ddd6c8; padding: 8px 14px; }
+  summary { cursor: pointer; font-family: "Avenir Next", "Segoe UI", sans-serif; font-weight: 600; }
+  .comp { margin: 18px 0 28px; }
+  .note { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 13px; color: #8a3b2a; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Add to cart</h1>
+  <p class="meta">B2B products marketplace · desktop web · 12 Oct 2026 · purchasing staff buying from many vendors in one place</p>
+
+  <h2>1. Summary</h2>
+  <p class="summary">Most captured marketplaces show a unit price before asking for an account. They then split into two products that look the same: a real cart (Amazon Business, DHgate) or an inquiry that is named like a cart (Made-in-China’s Inquiry Basket, IndiaMART’s Get Latest Price, Global Sources’ Inquire Now). The minimum order is usually printed beside the price and then ignored by the form. The clearest gap is a quantity control that states the minimum and refuses a smaller number, next to a single obvious action that is either Add to cart or Request quote.</p>
+
+  <h2>What changed since 10 Oct 2026</h2>
+  <p>The 10 Oct Paper report looked at distributor catalogs (McMaster-Carr, Uline, WebstaurantStore) plus Alibaba. Memory had no stored run, so this comparison is from that Paper file. This run looked at multi-vendor marketplaces instead, because the product context is purchasing staff buying from many vendors in one place.</p>
+  <p>Amazon Business was unscored on 10 Oct as a registration gate. This time the public supplies catalog opened a guest product page, a guest cart, and sign-in only at checkout. Faire is still a signup wall. Alibaba was an inquiry flow on 10 Oct and a CAPTCHA this time, so it is unscored. McMaster-Carr’s one-click, stay-on-page add was the previous best pattern and was not in this set. The closest minimum-order behavior now is DHgate snapping quantity 1 back to 40.</p>
+
+  <h2>2. Patterns</h2>
+
+  <section class="pattern">
+    <h3>Price on the product, before an account</h3>
+    <p class="who">5 of 5 captured — Amazon Business, IndiaMART, Made-in-China, DHgate, Global Sources</p>
+    <div class="shots">
+      <figure>
+        <img src="./amazon-business/step-02-pdp.png" alt="Amazon Business product page with a visible rupee price and Add to cart">
+        <figcaption>Amazon Business — guest product page shows the price, a per-count price, and Add to cart.</figcaption>
+      </figure>
+      <figure>
+        <img src="./dhgate/step-02-pdp.png" alt="DHgate product page with three quantity price tiers">
+        <figcaption>DHgate — unit price and three quantity breaks (40, 56, and 197 pieces) before any sign-in.</figcaption>
+      </figure>
+    </div>
+    <p>Purchasing staff can compare vendors only if the number is on the product. Masking it until signup removes the decision this flow is for.</p>
+  </section>
+
+  <section class="pattern">
+    <h3>Inquiry standing in for the cart</h3>
+    <p class="who">3 of 5 captured — Made-in-China, IndiaMART, Global Sources</p>
+    <div class="shots">
+      <figure>
+        <img src="./made-in-china/step-03-inquiry-basket.png" alt="Made-in-China inquiry basket with one product and a Send Inquiry action">
+        <figcaption>Made-in-China — the basket copy says it works like a shopping cart, then the action is Send Inquiry.</figcaption>
+      </figure>
+      <figure>
+        <img src="./global-sources/step-03-inquiry-qty.png" alt="Global Sources send inquiry dialog with a quantity of 1">
+        <figcaption>Global Sources — Inquire Now opens a guest form. The product has no Add to cart.</figcaption>
+      </figure>
+    </div>
+    <p>A fixed price and a quote request are different jobs. These three use one path for both, so a listed price still ends in a message to the supplier.</p>
+  </section>
+
+  <section class="pattern">
+    <h3>Quantity price tiers on the product</h3>
+    <p class="who">3 of 5 captured — Made-in-China, DHgate, Global Sources</p>
+    <div class="shots">
+      <figure>
+        <img src="./made-in-china/step-02-pdp-tiers.png" alt="Made-in-China product with four price tiers by piece count">
+        <figcaption>Made-in-China — US$4.30 down to US$3.40 across four piece ranges, then Send Inquiry.</figcaption>
+      </figure>
+      <figure>
+        <img src="./global-sources/step-02-pdp-tiers.png" alt="Global Sources product with three wholesale price tiers">
+        <figcaption>Global Sources — US$5, US$3, and US$2.8 tied to 2–999, 1000–2999, and 3000+ pieces.</figcaption>
+      </figure>
+    </div>
+    <p>The tier is the wholesale price. Showing it on the product matches the principle that price is visible when someone considers buying.</p>
+  </section>
+
+  <section class="pattern">
+    <h3>Minimum order printed, then weakly enforced</h3>
+    <p class="who">3 of 5 captured — DHgate, Made-in-China, Global Sources</p>
+    <div class="shots">
+      <figure>
+        <img src="./dhgate/step-03-moq-qty.png" alt="DHgate quantity set to 40 with Min. Order 40 Piece">
+        <figcaption>DHgate — quantity reads 40 and the line under it says Min. Order: 40 Piece. Typing 1 snapped back to 40.</figcaption>
+      </figure>
+      <figure>
+        <img src="./made-in-china/step-04-inquiry-errors.png" alt="Made-in-China inquiry form with quantity 1 and validation for email and content">
+        <figcaption>Made-in-China — the product’s MOQ is 200 pieces. Quantity 1 on the inquiry drew errors for message, email, and captcha, not for the minimum.</figcaption>
+      </figure>
+    </div>
+    <p>A label is not enforcement. DHgate is the only one that changes the number to meet the minimum. The others let a too-small quantity sit in the form.</p>
+  </section>
+
+  <section class="pattern">
+    <h3>Account wall before the price</h3>
+    <p class="who">2 not captured — Faire, Ankorstore. Alibaba never reached a product (CAPTCHA).</p>
+    <div class="shots">
+      <figure>
+        <img src="./faire/step-01-search-masked-price.png" alt="Faire search results with prices masked as dollar signs">
+        <figcaption>Faire — product cards show “$ XX.XX” and “Unlock wholesale price.” Opening one asks for a business email.</figcaption>
+      </figure>
+      <figure>
+        <img src="./ankorstore/step-02-pdp-login-wall.png" alt="Ankorstore product covered by a welcome-back login dialog">
+        <figcaption>Ankorstore — the product shows MSRP and “See the wholesale price,” then a login dialog.</figcaption>
+      </figure>
+    </div>
+    <p>This is the opposite of guest browsing and guest add-to-cart. The wholesale number never appears, so the flow could not be scored.</p>
+  </section>
+
+  <h2>3. Score table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Competitor</th>
+        <th>Info density</th>
+        <th>Steps-to-value</th>
+        <th>Error clarity</th>
+        <th>Edge-case handling</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Amazon Business</td>
+        <td>4/5 — Price, unit price, quantity, and Add to cart sit in one column on a guest product page.</td>
+        <td>5/5 — From the business listing, open the product and Add to cart. Sign-in starts only at checkout.</td>
+        <td>4/5 — Checkout stops on a sign-in page that tells you to enter email or mobile. No product error appeared.</td>
+        <td>2/5 — No minimum order and no quote path. Quantity is a 1–30 list with no explanation of a floor.</td>
+      </tr>
+      <tr>
+        <td>DHgate</td>
+        <td>3/5 — Piece-count price tiers are clear, then a coupon pack and discount chips sit above Buy Now.</td>
+        <td>3/5 — Add to cart is on the product, and the click left the cart at zero while shipping was already blocked.</td>
+        <td>4/5 — Red text says the item cannot ship to India and names the next step: contact the seller or change region.</td>
+        <td>4/5 — “Min. Order: 40 Piece” is under the stepper, and typing 1 returned the field to 40.</td>
+      </tr>
+      <tr>
+        <td>Made-in-China</td>
+        <td>4/5 — Four piece-range prices and Send Inquiry are the first decision on the product.</td>
+        <td>3/5 — A guest can add to the inquiry basket in one click, then must write a message, email, and captcha.</td>
+        <td>4/5 — An empty send names the missing message, email, and verification code.</td>
+        <td>2/5 — MOQ is 200 pieces on the product. Quantity 1 on the inquiry produced no minimum message.</td>
+      </tr>
+      <tr>
+        <td>Global Sources</td>
+        <td>4/5 — Search cards show a price range and a minimum; the product repeats three tiers beside Inquire Now.</td>
+        <td>3/5 — Inquire Now opens a guest form. There is no cart, and the form asks for attributes plus email.</td>
+        <td>2/5 — Quantity 1, below the stated minimum of 2, stayed in the field with no warning.</td>
+        <td>3/5 — The tier says 2–999 pieces and the form opens at 2, then accepts a lower number.</td>
+      </tr>
+      <tr>
+        <td>IndiaMART</td>
+        <td>3/5 — ₹ per piece is on the card, beside Contact Supplier, Call Now, and supplier stats.</td>
+        <td>2/5 — Get Latest Price opens a mobile OTP login before any quantity or order.</td>
+        <td>3/5 — The dialog says to log in with a mobile number, and does not say why a listed price still needs that.</td>
+        <td>2/5 — No minimum on the product we opened, and every product uses enquiry rather than a fixed-price cart.</td>
+      </tr>
+      <tr>
+        <td>Alibaba</td>
+        <td colspan="4">Not captured — search hit a CAPTCHA before any product.</td>
+      </tr>
+      <tr>
+        <td>Faire</td>
+        <td colspan="4">Not captured — wholesale prices are masked and a product click opens signup.</td>
+      </tr>
+      <tr>
+        <td>Ankorstore</td>
+        <td colspan="4">Not captured — the product shows MSRP only, then a login dialog over “See the wholesale price.”</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Edge cases</h2>
+  <div class="callout"><strong>DHgate — quantity snaps to the minimum.</strong> Typing 1 in a field whose minimum is 40 returned the value to 40, with “Min. Order: 40 Piece” still visible. That is the only captured control that would not let a below-minimum number stand. See step-03 in the DHgate appendix.</div>
+  <div class="callout"><strong>DHgate — shipping block does not explain a failed add.</strong> The page already said the bottle cannot ship to India. Add to cart left the side cart at “Your cart is empty” and Rs.0.00, with no second message. See the same step-03 shot.</div>
+  <div class="callout"><strong>Made-in-China — minimum is not part of the inquiry error.</strong> The product tier starts at 200 pieces. Submitting quantity 1 flagged content, email, and the verification code only. See step-04.</div>
+  <div class="callout"><strong>Global Sources — inquiry quantity can sit under the printed minimum.</strong> The product says 2–999 pieces. The dialog opened at 2 and then kept 1 with no inline warning. See step-03.</div>
+  <div class="callout"><strong>IndiaMART — a shown price still ends in a phone login.</strong> ₹330/Piece is on the product. Get Latest Price asks for a mobile number and OTP before the buyer can send anything. See step-03. Checkout login is an intentional constraint; this wall is earlier than checkout.</div>
+  <div class="callout"><strong>Amazon Business — login is at checkout, not at the cart.</strong> A guest cart confirmed “Added to cart” and showed Proceed to checkout. That button then opened Sign in. See steps 03 and 04. That matches the constraint that an account is for checkout.</div>
+
+  <h2>5. Opportunities</h2>
+  <p><strong>One control that states the minimum and holds it.</strong> Put “Minimum 40” inside the quantity field, not only in a caption. If someone types less, keep the number from proceeding and say what the floor is. DHgate already snaps the number back. Made-in-China and Global Sources print the floor and then let a smaller number through. This fits a decluttered page: one field, one rule.</p>
+  <p><strong>Add to cart and Request quote as two different buttons, used one at a time.</strong> Use Add to cart only when the price is fixed. Use Request quote only when it is not. Amazon Business and DHgate only have the cart. IndiaMART, Made-in-China, and Global Sources only have the inquiry, even when a number is already on the page. IndiaMART’s “Get Latest Price” on a product that already says ₹330/Piece works against price being visible at the moment of the decision.</p>
+  <p><strong>Keep the guest cart, and keep the account at checkout.</strong> Amazon Business already does this: browse, price, and cart without an account, then sign-in to check out. That is the stated constraint, so it is not a gap. Faire, Ankorstore, and IndiaMART put the account earlier, before the buyer can act on a price. Do not treat their walls as a pattern to copy.</p>
+  <p><strong>Show the tier on the card, not only after the click.</strong> Global Sources and Made-in-China put a range and a minimum on the search card. Amazon Business shows one price and no minimum. For purchasing staff comparing vendors, the card should carry the unit price and the minimum so the product page is confirmation, not the first time the rule appears.</p>
+
+  <h2>6. Full screenshot appendix</h2>
+  <details>
+    <summary>All steps, by competitor</summary>
+
+    <div class="comp">
+      <h3>Amazon Business</h3>
+      <div class="shots">
+        <figure><img src="./amazon-business/step-01-catalog.png" alt="Amazon Business office supplies catalog"><figcaption>step-01 catalog</figcaption></figure>
+        <figure><img src="./amazon-business/step-02-pdp.png" alt="Amazon product page"><figcaption>step-02 product</figcaption></figure>
+        <figure><img src="./amazon-business/step-03-cart.png" alt="Amazon cart confirmation"><figcaption>step-03 cart</figcaption></figure>
+        <figure><img src="./amazon-business/step-04-checkout-signin.png" alt="Amazon sign-in at checkout"><figcaption>step-04 checkout sign-in</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="comp">
+      <h3>DHgate</h3>
+      <div class="shots">
+        <figure><img src="./dhgate/step-01-search.png" alt="DHgate search"><figcaption>step-01 search</figcaption></figure>
+        <figure><img src="./dhgate/step-02-pdp.png" alt="DHgate product price tiers"><figcaption>step-02 product tiers</figcaption></figure>
+        <figure><img src="./dhgate/step-03-moq-qty.png" alt="DHgate minimum order and shipping warning"><figcaption>step-03 minimum and shipping block</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="comp">
+      <h3>Made-in-China</h3>
+      <div class="shots">
+        <figure><img src="./made-in-china/step-01-search-moq.png" alt="Made-in-China search"><figcaption>step-01 search</figcaption></figure>
+        <figure><img src="./made-in-china/step-02-pdp-tiers.png" alt="Made-in-China price tiers"><figcaption>step-02 price tiers</figcaption></figure>
+        <figure><img src="./made-in-china/step-03-inquiry-basket.png" alt="Made-in-China inquiry basket"><figcaption>step-03 inquiry basket</figcaption></figure>
+        <figure><img src="./made-in-china/step-04-inquiry-errors.png" alt="Made-in-China inquiry validation"><figcaption>step-04 inquiry validation</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="comp">
+      <h3>Global Sources</h3>
+      <div class="shots">
+        <figure><img src="./global-sources/step-01-search-moq.png" alt="Global Sources search"><figcaption>step-01 search</figcaption></figure>
+        <figure><img src="./global-sources/step-02-pdp-tiers.png" alt="Global Sources product tiers"><figcaption>step-02 product tiers</figcaption></figure>
+        <figure><img src="./global-sources/step-03-inquiry-qty.png" alt="Global Sources inquiry dialog"><figcaption>step-03 inquiry, quantity 1</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="comp">
+      <h3>IndiaMART</h3>
+      <div class="shots">
+        <figure><img src="./indiamart/step-01-search-price.png" alt="IndiaMART search with prices"><figcaption>step-01 search prices</figcaption></figure>
+        <figure><img src="./indiamart/step-02-pdp-enquiry.png" alt="IndiaMART product page"><figcaption>step-02 product</figcaption></figure>
+        <figure><img src="./indiamart/step-03-phone-gate.png" alt="IndiaMART mobile login"><figcaption>step-03 phone login</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="comp">
+      <h3>Faire <span class="note">not captured</span></h3>
+      <div class="shots">
+        <figure><img src="./faire/step-01-search-masked-price.png" alt="Faire masked prices"><figcaption>step-01 masked prices</figcaption></figure>
+        <figure><img src="./faire/step-02-signup-wall.png" alt="Faire signup dialog"><figcaption>step-02 signup wall</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="comp">
+      <h3>Ankorstore <span class="note">not captured</span></h3>
+      <div class="shots">
+        <figure><img src="./ankorstore/step-01-search-msrp.png" alt="Ankorstore search showing MSRP"><figcaption>step-01 search, MSRP only</figcaption></figure>
+        <figure><img src="./ankorstore/step-02-pdp-login-wall.png" alt="Ankorstore login dialog"><figcaption>step-02 login wall</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="comp">
+      <h3>Alibaba <span class="note">not captured</span></h3>
+      <div class="shots">
+        <figure><img src="./alibaba/step-01-captcha.png" alt="Alibaba captcha"><figcaption>step-01 CAPTCHA</figcaption></figure>
+      </div>
+    </div>
+  </details>
+</main>
+</body>
+</html>
